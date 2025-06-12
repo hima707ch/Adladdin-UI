@@ -5,9 +5,12 @@ import {jwtDecode} from 'jwt-decode';
 import { useDispatch } from 'react-redux'
 import { setUser } from '../slices/userSlice'; 
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { setPopup } from '../slices/popupSlice';
 
 export default function GoogleLoginButton({setIsAuthenticated}) {
   const dispatch = useDispatch();
+  const nav = useNavigate()
 
   const handleLoginSuccess = async (credentialResponse) => {
 
@@ -21,13 +24,29 @@ export default function GoogleLoginButton({setIsAuthenticated}) {
   
       console.log(data)
       dispatch(setUser(data))
+      
+      if(data.isNewUser){
+                dispatch(setPopup({page: "register", bool: true}))
+      }
     }
     catch(err){
     }
   };
 
+  async function checkLogin() {
+    try{
+      const resp = await axios.post(`/api/me`, {}, {withCredentials: true})
+        const data = resp.data;
+    
+        dispatch(setUser(data))
+    }
+    catch(err){
+
+    }
+  }
+
   useEffect( ()=>{
-    handleLoginSuccess()
+    checkLogin()
   }, [])
 
   return (

@@ -1,6 +1,13 @@
 // pages/Home.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
+import HeroSection from '../components/HeroSection';
+import Hero2 from '../components/Hero2';
+import Hero3 from '../components/Hero3';
+import FeaturedSection from '../components/featuredSection';
+import HowItWork from '../components/HowItWork';
+import WhyUs from '../components/WhyUs';
+import FinalSection from '../components/FinalSection';
 
 const Home = () => {
   const features = [
@@ -36,7 +43,7 @@ const Home = () => {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <div className="relative bg-indigo-800 overflow-hidden">
+      {/* <div className="relative bg-indigo-800 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="relative z-10 pb-8 bg-indigo-800 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
             <div className="pt-10 sm:pt-16 lg:pt-8 xl:pt-16">
@@ -72,10 +79,21 @@ const Home = () => {
             alt="People collaborating"
           />
         </div>
-      </div>
+      </div> */}
+      {/* <HeroSection/> */}
+
+      <Hero3 />
+
+      <FeaturedSection />
+
+      <HowItWork />
+
+      {/* <WhyUs /> */}
+
+      <FinalSection />
 
       {/* Features Section */}
-      <div className="py-12 bg-white">
+      {/* <div className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:text-center">
             <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">Features</h2>
@@ -103,10 +121,10 @@ const Home = () => {
             </dl>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* CTA Section */}
-      <div className="bg-indigo-50">
+      {/* <div className="bg-indigo-50">
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
           <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
             <span className="block">Ready to dive in?</span>
@@ -131,7 +149,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
